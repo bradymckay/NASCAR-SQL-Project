@@ -1,0 +1,11 @@
+SELECT 
+    car_number, 
+    count(DISTINCT(YEAR)) as Championships,
+    count(distinct(driver)) as Num_Drivers
+FROM 
+    dr_series_history
+group by 
+    car_number
+ORDER BY 
+    Championships DESC, 
+    Num_Drivers
