@@ -1,0 +1,15 @@
+SELECT 
+    r.most_popular_driver AS MP_Driver,
+    count(DISTINCT(r.year)) AS Awards,
+    count(DISTINCT(c.year)) AS Championships
+FROM 
+    rr_series_history r
+INNER JOIN 
+    rr_series_history c
+ON 
+    r.most_popular_driver = c.champion
+GROUP BY 
+    r.most_popular_driver
+ORDER BY 
+    Awards DESC, 
+    Championships DESC
