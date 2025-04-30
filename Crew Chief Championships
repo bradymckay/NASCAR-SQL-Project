@@ -1,0 +1,9 @@
+SELECT 
+    champions_crew_chief, 
+    COUNT(champions_crew_chief) as CC_Champs,
+    count(distinct(champion)) as Diff_Drivers,
+    count(DISTINCT(car_owner)) as Diff_Owners
+FROM rr_series_history
+GROUP BY champions_crew_chief
+HAVING CC_Champs > 1 AND Diff_Drivers = 1
+ORDER BY CC_Champs DESC, champions_crew_chief
