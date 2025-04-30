@@ -1,0 +1,17 @@
+SELECT 
+    rr_series_history.year, 
+    rr_series_history.champion, 
+    dr_series_history.car_number, 
+    dr_series_history.car_manufacturer, 
+    rr_series_history.car_owner, 
+    dr_series_history.wins
+FROM 
+    rr_series_history
+FULL JOIN 
+    dr_series_history 
+    ON rr_series_history.year = dr_series_history.year
+GROUP BY 
+    rr_series_history.year, 
+    dr_series_history.wins
+ORDER BY 
+    rr_series_history.year DESC
