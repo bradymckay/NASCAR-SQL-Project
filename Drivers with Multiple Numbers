@@ -8,6 +8,8 @@ FROM
     dr_series_history
 GROUP BY 
     driver
+HAVING
+    Avg_Wins_Dur_Champ_Yr > 5 AND Champs > 1
 ORDER BY 
     Champs DESC, 
     Year DESC, 
