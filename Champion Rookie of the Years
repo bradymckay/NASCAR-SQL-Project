@@ -1,0 +1,14 @@
+SELECT 
+    r.rookie_of_the_year AS Champ_Name,
+    r.year AS Rookie_Year,
+    COUNT(c.champion) AS Championships_Won
+FROM 
+    rr_series_history r
+INNER JOIN 
+    rr_series_history c
+ON 
+    r.rookie_of_the_year = c.champion
+GROUP BY 
+    r.rookie_of_the_year, r.year
+ORDER BY 
+    Championships_Won DESC, c.year DESC
