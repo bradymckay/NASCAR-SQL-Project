@@ -1,0 +1,15 @@
+SELECT 
+    distinct(driver), 
+    count(distinct(car_number)) as Car_Num,
+    count(DISTINCT(year)) as Champs,
+    sum(wins) as Wins_During_Champ_Yr,
+    round(AVG(wins),2) as Avg_Wins_Dur_Champ_Yr
+FROM 
+    dr_series_history
+GROUP BY 
+    driver
+ORDER BY 
+    Champs DESC, 
+    Year DESC, 
+    car_number, 
+    driver
