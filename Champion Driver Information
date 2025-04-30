@@ -1,0 +1,11 @@
+SELECT 
+    champion as driver, 
+    COUNT(distinct(YEAR)) as Champs,
+    count(DISTINCT(car_owner)) as Car_Owners, 
+    COUNT(DISTINCT(champions_crew_chief)) as CC
+FROM 
+    rr_series_history
+GROUP BY 
+    driver
+ORDER BY 
+    champs DESC
